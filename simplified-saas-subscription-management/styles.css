@@ -1,0 +1,75 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Hero section */
+  .hero {
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+    padding: 2em;
+  }
+  
+  .hero h1 {
+    font-size: 2em;
+  }
+  
+  .hero h2 {
+    font-size: 1.5em;
+  }
+  
+  /* Call to Action button */
+  .cta-button {
+    display: inline-block;
+    background-color: #27AE60;
+    color: white;
+    padding: 1em 2em;
+    margin: 1em 0;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #229954;
+  }
+  
+  /* Content sections */
+  .content-section {
+    padding: 2em;
+    text-align: center;
+  }
+  
+  .content-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+  
+  /* CTA section at the bottom */
+  .cta-section {
+    text-align: center;
+    padding: 2em;
+  }
+  
+  /* Mobile responsiveness */
+  @media screen and (max-width: 768px) {
+    .hero h1 {
+      font-size: 1.5em;
+    }
+  
+    .hero h2 {
+      font-size: 1.2em;
+    }
+  
+    .content-section h2 {
+      font-size: 1.2em;
+    }
+  
+    .cta-button {
+      padding: 0.8em 1.5em;
+    }
+  }
+  
