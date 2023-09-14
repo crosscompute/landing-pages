@@ -1,0 +1,88 @@
+:root {
+    --header-font-size: calc(3em + 1.5vw); /* Adjusted */
+    --paragraph-font-size: calc(1em + 1vw); /* Adjusted */
+    --button-font-size: calc(0.7em + 0.5vw); /* Adjusted */
+    --section-padding: 50px 20px;
+}
+
+body {
+    background-color: #0C3B2E;
+    color: white;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.hero, .platform, .reach-out {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    padding: var(--section-padding);
+}
+
+.header, .platform-header, .reach-out-header {
+    font-size: var(--header-font-size);
+    margin-bottom: 20px;
+}
+
+.supporting-copy, .platform-paragraph, .reach-out-paragraph {
+    font-size: var(--paragraph-font-size);
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    font-size: var(--button-font-size);
+    font-family: sans-serif;
+    background-color: #FFBA00;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.platform {
+    background-color: #6D9773;
+    color: white;
+}
+
+.reach-out {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    color: white;
+    height: 100vh;
+    padding-left: 50px;
+
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+      --header-font-size: calc(1.5em + 2vw); /* Adjusted */
+      --paragraph-font-size: calc(0.8em + 1vw); /* Adjusted */
+      --button-font-size: calc(0.8em + 1vw); /* Adjusted */
+      --section-padding: 20px 10px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    :root {
+      --header-font-size: calc(2em + 1.5vw); /* Adjusted */
+      --paragraph-font-size: calc(1em + 1vw); /* Adjusted */
+      --button-font-size: calc(1em + 0.5vw); /* Adjusted */
+      --section-padding: 40px 15px;
+    }
+}
+
+.hero, .platform {
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.reach-out-header {
+    color:#FFBA00;
+}
