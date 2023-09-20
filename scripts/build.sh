@@ -6,5 +6,5 @@ cd ~/Projects/landing-pages
 git checkout main
 git pull
 
-cp ~/Projects/landing-pages/pages/* $FOLDER -r
+cp ~/Projects/landing-pages/pages $FOLDER -r
 ln -snf $FOLDER /srv/crosscompute-pages
