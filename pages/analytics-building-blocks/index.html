@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VP9T2V7B17"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-VP9T2V7B17');
+</script>
+<title>Turn Your Analytics into Reusable Building Blocks by Documenting Input and Output Variables</title>
+<style>
+header {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+header > nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+footer {
+  margin: 0 auto;
+  max-width: 600px;
+}
+footer p {
+  text-align: center;
+}
+iframe {
+  border: 0;
+  max-width: 100%;
+}
+img {
+  max-width: 100%;
+}
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin: 32px;
+}
+.action {
+  width: 100%;
+}
+#brand {
+  height: 1.5em;
+  max-width: 100%;
+  transform: translate(0, -2px);
+}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<a href="https://crosscompute.com"><img id="brand" src="https://crosscompute.com/assets/LogoBrand-Horizontal-20230501.svg" loading="lazy" alt="CrossCompute Logo;"></a>
+</nav>
+<nav>
+<a href="https://crosscompute.net">Runnable Tools</a>
+</nav>
+</header>
+<main>
+<h1>Turn Your Analytics into Reusable Building Blocks by Documenting Input and Output Variables</h1>
+<h2>Toward an Open Standard for Interoperable Decision Support Tools</h2>
+<p>The typical approach to deploying analytics is to write a report, app or API. In all three cases, making the resulting analytical product interoperable, that is, able to be integrated into other analytical products, takes considerable effort to do properly. As a result, many decision support tools are solitary and often monolithic creations that sadly are abandoned when they become too costly to maintain.</p>
+<p>We would like to propose an open standard that not only reduces the barrier of entry to turning a script into a decision support tool but also makes the resulting tools easier to maintain and communicate with each other. The proposed open standard describes the input and output variables of each tool. Codifying tools in a standardized way also makes it possible for future machine learning algorithms to put tools together to solve problems. <a href="https://github.com/crosscompute/crosscompute" target="_blank">We include an open source reference implementation</a>.</p>
+<h2>Document Input and Output Variables in a Configuration File</h2>
+Here is an example configuration file in YAML format.
+<pre><code>
+crosscompute: 0.9.4
+name: Count Words
+version: 0.1.0
+input:
+  variables:
+    - id: document
+      view: text
+      path: document.txt
+  templates:
+    - path: input.md
+output:
+  variables:
+    - id: word_count
+      view: number
+      path: variables.dictionary
+    - id: word_counts
+      view: table
+      path: word_counts.json
+  templates:
+    - path: output.md
+batches:
+  - folder: batches/standard
+scripts:
+  - path: run1.ipynb
+  - path: run2.py
+  - command: >
+      python run3.py {input_folder}
+      {output_folder}
+display:
+  styles:
+    - path: style.css
+</code></pre>
+<p><a href="https://github.com/crosscompute/crosscompute/blob/develop/crosscompute/assets/configuration.yml" target="_blank">Here is the complete list of all supported configuration options</a>.</p>
+<ul>
+  <li>Scripts can be notebooks, scripts or commands.</li>
+  <li>Batches or presets are preconfigured sets of input values.</li>
+  <li>For each variable, you need to specify a path where your script can read (for input) or write (for output) the value of the variable.</li>
+  <li>Use <a href="https://www.markdownguide.org" target="_blank">Markdown</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">CSS</a> to make your input and output templates. You can also add <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">JavaScript</a> to your templates.</li>
+</ul>
+<p><a href="https://crosscompute.net/a/learn-examples-in-jupyterlab?session_duration_in_minutes=10" target="_blank">Start a JupyterLab session to try different configuration examples</a>.</p>
+
+<h2>Stitch Multiple Subtools into a Megatool</h2>
+<p>With the input and output variables of each component defined, it becomes possible to stitch multiple subtools into a megatool. Use JavaScript in the input or output template or make web requests using the programming language of your choice in your application.</p>
+<p>In CrossCompute 0.9.4, use <code>POST /a/your-tool-slug.json</code> and send the variable values in the body of the POST request as JSON <code>{"variable_id1": {"value": "abc"}, "variable_id2": {"uri": "/f/your-file-id"}}</code>. You may need to upload files using <code>POST /files.json</code> first. Check that a result succeeded if <code>GET /a/your-tool-slug/b/your-result-slug/d/return_code</code> is <code>0</code>, then retrieve variable values using <code>GET /a/your-tool-slug/b/your-result-slug/o/your-variable-id</code>.</p>
+<p>In CrossCompute 1.0.0 (not yet released), use <code>POST /results.json</code> and <code>GET /sockets/results.json</code> to submit and listen for results.</p>
+<p>We hope that you find our work useful in turning your analytics into reusable building blocks. Please consider subscribing to our newsletter for updates. You can also visit <a href="https://forum.crosscompute.com" target="_blank">our discussion forum</a>.</p>
+</main>
+<footer>
+<p><a href="https://crosscompute.com">CrossCompute Inc.</a> @ ARK Innovation Center<br>1101 4th St S, St. Petersburg, FL, USA 33701</p>
+<iframe loading="lazy" class="action" src="https://crosscompute.net/a/subscribe-newsletter?_embed"></iframe>
+</footer>
+<script>
+</script>
+</body>
+</html>
